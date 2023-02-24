@@ -1,0 +1,263 @@
+[
+  {
+    "url": "b594c8d1-ea6a-4bcd-a6aa-2c7a8ad3fe5b",
+    "nummer": 1,
+    "jaar": 2020,
+    "naam": "Instellen en inrichten organisatie",
+    "omschrijving": "Instellen en inrichten organisatie",
+    "toelichting": "Dit procestype betreft het instellen van een nieuw organisatieonderdeel of een nieuwe orgaan waar het orgaan in deelneemt. Dit procestype betreft eveneens het inrichten van het eigen orgaan. Dit kan kleinschalig plaatsvinden bijvoorbeeld het wijzigen van de uitvoering van een wettelijke taak of grootschalig wanneer er een organisatiewijziging wordt doorgevoerd.",
+    "procesobject": "De vastgestelde organisatie inrichting"
+  },
+  {
+    "url": "046d5ff0-4c71-464b-8c29-cd88fa204524",
+    "nummer": 2,
+    "jaar": 2020,
+    "naam": "Beleid en regelgeving opstellen",
+    "omschrijving": "Opstellen en vaststellen van algemene (wettelijke) kaders voor het functioneren van de instelling.",
+    "toelichting": "Wanneer een beleidsstuk betrekking heeft op een bepaalde afgebakende periode vormt het een beleidsplan en valt het onder het procestype \u0027Plan opstellen\u0027. In een beleidsregel geeft een orgaan aan hoe een bepaalde bevoegdheid zal worden uitgevoerd. Bij het nemen van veel voorkomende beslissingen hoeft het orgaan niet telkens haar beleid of haar uitvoering van hogere wet- en regelgeving uit te leggen, maar kan zij verwijzen naar de bekendgemaakte beleidsregel. Deze vorm van regelgeving valt wel onder dit procestype. ",
+    "procesobject": "Het beleid of regelgeving"
+  },
+  {
+    "url": "e04ccf9b-501b-4228-8e16-c95eab801ee5",
+    "nummer": 3,
+    "jaar": 2020,
+    "naam": "Plannen opstellen",
+    "omschrijving": "Opstellen van plannen voor een in het plan afgebakende periode die richting geeft voor wat er in die periode moet gebeuren / verwacht wordt dat er gaat gebeuren.",
+    "toelichting": "Dit procestype heeft betrekking op het concreet invullen van algemene kaders die in beleidsstukken worden geschetst voor een afgebakende periode. Het orgaan stelt hiervoor een plan op. ",
+    "procesobject": "Het plan"
+  },
+  {
+    "url": "8735037c-a438-4068-b479-1959868f03f9",
+    "nummer": 4,
+    "jaar": 2020,
+    "naam": "Evaluatie uitvoeren",
+    "omschrijving": "Het controleren, evalueren, rapporten en verantwoorden over het handelen van het orgaan",
+    "toelichting": "Dit evalueren kan zowel betrekking hebben op de evaluatie van beleid, als op de uitvoering van beleid en het functioneren van het eigen orgaan.",
+    "procesobject": "Het object waar de evaluatie betrekking op heeft"
+  },
+  {
+    "url": "651a1b5b-f84f-4c73-9151-4d485c7dcb99",
+    "nummer": 5,
+    "jaar": 2020,
+    "naam": "Producten en diensten leveren",
+    "omschrijving": "Het door het orgaan leveren van (publieke) producten of diensten",
+    "toelichting": "Voor het verstrekken van een product of dienst hoeft de aanvrager niet aan een bepaalde situatie te voldoen, want in dat geval is het procestype \u0027Voorzieningen verstrekken\u0027 van toepassing. Het product of de dienst houdt niet het doen of laten van het orgaan in, want in dat geval valt het onder het procestype \u0027Verzoeken behandelen\u0027.",
+    "procesobject": "Het geleverde product of de geleverde dienst"
+  },
+  {
+    "url": "6d85b4dc-381c-413e-af3c-1e9668f4ea97",
+    "nummer": 6,
+    "jaar": 2020,
+    "naam": "Verzoeken behandelen",
+    "omschrijving": "Het behandelen van een verzoek  tot het doen of laten van het orgaan",
+    "toelichting": "Wanneer een aanvrager een aanvraag voor een bepaalde voorziening indient, is het procestype \u0027Voorzieningen verstrekken\u0027 van toepassing. Wanneer het om een product of dienst gaat dat niet een doen of juist laten van het orgaan inhoudt, is het procestype \u0027Producten en diensten leveren\u0027 van toepassing.",
+    "procesobject": "Het handelen van het orgaan op basis van het verzoek"
+  },
+  {
+    "url": "75252f24-5840-43db-b6fc-04c9f19261b9",
+    "nummer": 7,
+    "jaar": 2020,
+    "naam": "Aangiften behandelen",
+    "omschrijving": "Het behandelen van een aangifte van een bepaald feit, situatie of voornemen waar een inwoner op basis van wet- en regelgeving toe verplicht is.",
+    "toelichting": "Niet alleen de aangiften van inwoners zijn onder dit procestype geschaard, maar ook de kennisgevingen over een bepaald feit waar ketenpartners toe verplicht zijn en die het orgaan in de BRP dient te verwerken.",
+    "procesobject": "De aangifte"
+  },
+  {
+    "url": "bd1ec0a0-0ecd-4046-8372-dcb6bdfda891",
+    "nummer": 8,
+    "jaar": 2020,
+    "naam": "Voorzieningen verstrekken",
+    "omschrijving": "Het verstekken van een (financiële) voorziening, al dan niet na een bepaalde vorm van toetsing, waarvoor een inwoner van het orgaan op basis van zijn of haar situatie in aanmerking komt.",
+    "toelichting": "Indien de aanvrager zich niet in een bepaalde situatie hoeft te bevinden en wanneer het orgaan wordt verzocht om iets te doen of te laten, is het procestype \u0027Verzoek behandelen\u0027 van toepassing. Indien beiden niet van toepassing zijn, is het procestype \u0027Producten en diensten leveren\u0027 van toepassing.",
+    "procesobject": "De voorziening"
+  },
+  {
+    "url": "8b25d1ef-316e-4d27-8628-33a57da051c8",
+    "nummer": 9,
+    "jaar": 2020,
+    "naam": "Status toekennen",
+    "omschrijving": "Het toepassen van de publieke bevoegdheden als overheidsorgaan om personen, objecten of immateriële zaken een bepaalde status toe te kennen.",
+    "toelichting": "Het orgaan kan een gebied een status toekennen, om de bestemming of het gebruik van dit gebied te wijzigen. Door een persoon (een externe of een personeelslid) in een speciale functie te benoemen of door hem te mandateren, wordt hem een speciale bevoegdheden toegekend.",
+    "procesobject": "De status"
+  },
+  {
+    "url": "8727fed3-91e8-4bd3-ab4e-aacf4532f015",
+    "nummer": 10,
+    "jaar": 2020,
+    "naam": "Heffen",
+    "omschrijving": "Het opleggen van een financiële verplichting aan derden op basis van de publiekrechtelijke bevoegdheden als overheidsorgaan",
+    "toelichting": "",
+    "procesobject": "De heffing"
+  },
+  {
+    "url": "3e1f6d3e-617f-43e1-87be-8bd255ef4745",
+    "nummer": 11,
+    "jaar": 2020,
+    "naam": "Toestemming verlenen",
+    "omschrijving": "Het door het orgaan behandelen van een aanvraag, melding of verzoek om toestemming voor het doen of laten van een derde waar het orgaan bevoegd is om over te beslissen",
+    "toelichting": "",
+    "procesobject": "De verleende toestemming"
+  },
+  {
+    "url": "83ad3b3f-2fde-4c1b-8249-4e1429ebc6ad",
+    "nummer": 12,
+    "jaar": 2020,
+    "naam": "Toezien en handhaven",
+    "omschrijving": "Het vanuit een bevoegdheid, afspraak of overeenkomst inspecteren, controleren en toezien met als doel te controleren of personen of partijen voldoen aan geldende afspraken, wet- of regelgeving en het wanneer nodig corrigerend ingrijpen of opleggen van een sanctie.",
+    "toelichting": "Het kan hierbij gaan om landelijke wet- en regelgeving, door het orgaan vastgestelde regelgeving en om vastgelegde afspraken.",
+    "procesobject": "Het vastgelegde eindresultaat van het proces"
+  },
+  {
+    "url": "d4e71ef1-a20f-4023-8023-112002f6327c",
+    "nummer": 13,
+    "jaar": 2020,
+    "naam": "Geschillen behandelen",
+    "omschrijving": "Het afhandelen van een geschil dat door een derde aanhangig wordt gemaakt omdat deze een (vermeend) nadeel heeft ondervonden door het (niet) handelen van de instelling",
+    "toelichting": "Indien een derde of een personeelslid het niet eens is met het al of niet handelen van het orgaan, kan hij om compensatie verzoeken of een bezwaar aantekenen of een beroep indienen.",
+    "procesobject": "Het object waar het geschil betrekking op heeft"
+  },
+  {
+    "url": "05236164-baf8-4f89-af32-4a420fba55b3",
+    "nummer": 14,
+    "jaar": 2020,
+    "naam": "Openbare ruimte inrichten",
+    "omschrijving": "Het inrichten, herstructureren, aanleggen of ontwikkelen van alle openbare of private gebieden of objecten die het orgaan onder haar beheer heeft.",
+    "toelichting": "",
+    "procesobject": "De voorziening in de openbare ruimte"
+  },
+  {
+    "url": "388645ae-bb7f-4b2b-ba70-94b70f713d45",
+    "nummer": 15,
+    "jaar": 2020,
+    "naam": "Onderhouden en repareren",
+    "omschrijving": "Het planmatig onderhoud of naar aanleiding van een constatering repareren van objecten waarvoor het orgaan een beheerverantwoordelijkheid heeft.",
+    "toelichting": "",
+    "procesobject": "Het object waarop het onderhoud of de reparatie wordt uitgevoerd"
+  },
+  {
+    "url": "d38ae0f9-76fb-49ae-a245-c27011098577",
+    "nummer": 16,
+    "jaar": 2020,
+    "naam": "Overeenkomsten aangaan",
+    "omschrijving": "Het aangaan van een overeenkomst met een persoon of organisatie",
+    "toelichting": "Door overeenkomsten te sluiten kan het orgaan zorgen voor de uitvoering van haar taken, het voorzien in haar behoeften en voor het zekerstellen van haar positie.",
+    "procesobject": "De overeenkomst"
+  },
+  {
+    "url": "a78d7c4d-183c-47e9-a396-bb39ae6b1e8d",
+    "nummer": 17,
+    "jaar": 2020,
+    "naam": "Personen aanstellen",
+    "omschrijving": "Het aannemen van personen in een bepaalde functie",
+    "toelichting": "Het kan hierbij zowel om het aanstellen van een eigen personeelslid gaan, als om het benoemen van een persoon in een onafhankelijke commissie of het bestuur van het orgaan. ",
+    "procesobject": "Het dienstverband"
+  },
+  {
+    "url": "cafcc34a-9758-41f8-9742-daab16c2587e",
+    "nummer": 18,
+    "jaar": 2020,
+    "naam": "Betalen en innen",
+    "omschrijving": "Het op basis van een aangegane of opgelegde verplichting of heffing innen of betalen van geldbedragen",
+    "toelichting": "",
+    "procesobject": "De vordering of schuld"
+  },
+  {
+    "url": "a81c84fb-7c70-40fb-b76b-290c973402fa",
+    "nummer": 19,
+    "jaar": 2020,
+    "naam": "Secretariaat voeren en gegevens administreren / verwerken ",
+    "omschrijving": "Het door het orgaan in een van haar administraties verwerken van aangeleverde, gemelde of geconstateerde gegevens, zonder dat hier een inhoudelijke toetsing bij plaatsvindt",
+    "toelichting": "Dit procestype geldt eveneens voor de verslaglegging van overleg op verschillende niveaus. Zie bijlage 4 voor een overzicht van blijvend te bewaren registers waarvoor het orgaan verantwoordelijk is.",
+    "procesobject": "De verwerkte gegevens"
+  },
+  {
+    "url": "1ac59662-5b5b-4291-87f1-8c56d8670331",
+    "nummer": 20,
+    "jaar": 2020,
+    "naam": "Informeren",
+    "omschrijving": "Het op initiatief van het orgaan samenstellen en verspreiden van informatie over zaken van het orgaan die interne of externe derden aangaan",
+    "toelichting": "",
+    "procesobject": "De verstrekte of gepubliceerde informatie"
+  },
+  {
+    "url": "4af1c526-86de-44b7-be16-07b395b6715c",
+    "nummer": 21,
+    "jaar": 2020,
+    "naam": "Adviseren",
+    "omschrijving": "Het op eigen initiatief of op verzoek geven van een advies over een bepaalde situatie of voornemen",
+    "toelichting": "",
+    "procesobject": "Het advies"
+  },
+  {
+    "url": "fc040b00-d3e2-49be-8e8a-e0e772e5b771",
+    "nummer": 22,
+    "jaar": 2020,
+    "naam": "Gebeurtenis organiseren",
+    "omschrijving": "Het organiseren van een intern of externe gebeurtenis ",
+    "toelichting": "Het orgaan organiseert evenementen of gebeurtenissen vanuit haar wettelijke taak of ter promotie",
+    "procesobject": "De gebeurtenis"
+  },
+  {
+    "url": "e4cdcd58-820e-45b9-9b5b-8e50a14472be",
+    "nummer": 23,
+    "jaar": 2020,
+    "naam": "Voorziening aanvragen",
+    "omschrijving": "Het op initiatief van het orgaan bij een derde vragen van een voorziening waar het orgaan aanspraak op kan maken op basis van wet- en regelgeving of gemaakte afspraken.",
+    "toelichting": "",
+    "procesobject": "De voorziening"
+  },
+  {
+    "url": "938a9d4b-e728-4516-9fab-a45dfb9ae9ec",
+    "nummer": 24,
+    "jaar": 2020,
+    "naam": "Toestemming vragen",
+    "omschrijving": "Het op initiatief van het orgaan bij derden vragen van een toestemming op basis van een geldende verplichting hiertoe",
+    "toelichting": "",
+    "procesobject": "De verkregen toestemming"
+  },
+  {
+    "url": "66d31bef-41b3-4e83-ac5b-1b859c5795f0",
+    "nummer": 25,
+    "jaar": 2020,
+    "naam": "Toezicht en handhaving ondergaan",
+    "omschrijving": "Het ondergaan van toezicht en handhaving uitgevoerd door een ander orgaan",
+    "toelichting": "",
+    "procesobject": "Het object waarop het toezicht of de handhaving betrekking op heeft"
+  },
+  {
+    "url": "5a9a0792-e69c-4db6-96f1-babf9ec0fa1a",
+    "nummer": 26,
+    "jaar": 2020,
+    "naam": "Betwisten",
+    "omschrijving": "Het op initiatief van het orgaan bij een derde inbrengen van een geschil wanneer het orgaan door het (niet) handelen van een derde nadeel heeft ondervonden of dreigt te gaan ondervinden",
+    "toelichting": "Indien een orgaan het niet eens is met het al of niet handelen van een derde, kan het orgaan om compensatie vragen of bezwaar en/of beroep indienen bij de daartoe aangewezen organisaties.",
+    "procesobject": "Het object waar het geschil betrekking op heeft"
+  },
+  {
+    "url": "6e4dc308-99b8-4b7f-ba1a-7c54038ffa32",
+    "nummer": 27,
+    "jaar": 2020,
+    "naam": "Status aanvragen",
+    "omschrijving": "Het op initiatief van het orgaan bij een ander overheidsorgaan verzoeken om personen, objecten of immateriële zaken een bepaalde status toe te kennen.",
+    "toelichting": "Het orgaan kan een andere organisatie verzoeken om aan een persoon, een object of een bepaald gebied een status toe te kennen.",
+    "procesobject": "De status"
+  },
+  {
+    "url": "cb45ee1d-28ad-49da-9862-529ca245885f",
+    "nummer": 28,
+    "jaar": 2020,
+    "naam": "Product of dienst aanvragen",
+    "omschrijving": "Het door het orgaan aanvragen van (publieke) producten of diensten",
+    "toelichting": "Het orgaan kan bij een andere organisatie vragen om een product of dienst zonder dat daar een overeenkomst voor hoeft worden gesloten.",
+    "procesobject": "Product of dienst"
+  },
+  {
+    "url": "78fc57c3-88d6-440d-b43a-12732f00f26f",
+    "nummer": 29,
+    "jaar": 2020,
+    "naam": "Aangifte doen",
+    "omschrijving": "Het doen van aangifte van een bepaald feit, situatie of voornemen waar een ander overheidsorgaan op basis van wet- en regelgeving hier een administratie van voert.",
+    "toelichting": "",
+    "procesobject": "De aangifte"
+  }
+]

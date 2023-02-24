@@ -1,0 +1,616 @@
+openapi: 3.0.1
+info:
+  title: Referentielijsten & Selectielijst API
+  description: |-
+    "Een API om referentielijstwaarden en de gemeentelijke selectielijst
+    tebenaderen. Selectielijst De [Gemeentelijke Selectielijst](https://vng.nl/selectielijst)
+    is relevantin het kader van archivering.**Zaakgericht werken** Bij
+    het configureren van zaaktypes (en resultaattypes) in de catalogus APIrefereren
+    een aantal resources naar resources binnen de Selectielijst API. Het gaat dan
+    om de `ProcesType` en `Resultaat` resources.## ReferentielijstenReferentielijsten
+    bevat een standaardset aan waarden. Deze waarden zijn net t\xE9dynamisch om
+    in een enum opgenomen te worden, maar er is wel behoefte om deze landelijk
+    te standaardiseren. Een voorbeeld hiervan is de set aan mogelijkecommunicatiekanalen.
+    ## Autorisatie: Deze APIs zijn alleen-lezen, en behoeven geen autorisatie.
+    ## Inhoud: De inhoud wordt beheerd door VNG Realisatie. Om de inhoud van
+    referentielijsten bij te werken, contacteer dan VNG Realisatie via e-mail of
+    op Github.De inhoud van de Gemeentelijke Selectielijst wordt ge\xEFmporteerd
+    vanuit degepubliceerde Excel-bestanden."
+  contact:
+    url: https://github.com/VNG-Realisatie/referentielijsten-api
+    email: standaarden.ondersteuning@vng.nl
+  license:
+    name: EUPL 1.2
+    url: https://opensource.org/licenses/EUPL-1.2
+  version: 0.0.1
+servers:
+- url: http://referentielijsten-api.internal/api/v1
+- url: https://referentielijsten-api.internal/api/v1
+paths:
+  /health:
+    get:
+      tags:
+      - health
+      summary: Controleer of de api online is.
+      operationId: health_retrieve
+      responses:
+        200:
+          description: Health
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Health'
+  /procestypen:
+    get:
+      tags:
+      - procestypen
+      summary: Ontsluit de selectielijst procestypen.
+      description: |-
+        Procestypen worden gerefereerd in zaaktypecatalogi - bij het configureren
+        van een zaaktype wordt aangegeven welk procestype van toepassing is, zodat
+        het archiefregime van zaken bepaald kan worden.
+        Zie https://vng.nl/files/vng/20170706-selectielijst-gemeenten-intergemeentelijke-organen-2017.pdf
+        voor de bron van de inhoud.
+      operationId: procestypen_list
+      parameters:
+      - name: jaar
+        in: query
+        description: jaar
+        schema:
+          type: string
+      responses:
+        200:
+          description: ProcesType
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcesType'
+        400:
+          description: ValidatieFout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidatieFout'
+        405:
+          description: Fout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+  /procestypen/{uuid}:
+    get:
+      tags:
+      - procestypen
+      summary: Ontsluit de selectielijst procestypen.
+      description: |-
+        Procestypen worden gerefereerd in zaaktypecatalogi - bij het configureren
+        van een zaaktype wordt aangegeven welk procestype van toepassing is, zodat
+        het archiefregime van zaken bepaald kan worden.
+        Zie https://vng.nl/files/vng/20170706-selectielijst-gemeenten-intergemeentelijke-organen-2017.pdf
+        voor de bron van de inhoud.
+      operationId: procestypen_retrieve
+      parameters:
+      - name: uuid
+        in: path
+        description: uuid van de resultaattypeomschrijving
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        200:
+          description: ProcesType
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcesType'
+        400:
+          description: ValidatieFout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidatieFout'
+        404:
+          description: Fout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        405:
+          description: Fout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+  /resultaattypeomschrijvingen:
+    get:
+      tags:
+      - resultaattypeomschrijvingen
+      summary: Raadpleeg de generieke resultaattypeomschrijvingen.
+      operationId: resultaattypeomschrijvinggeneriek_list
+      responses:
+        200:
+          description: ResultaattypeOmschrijvingGeneriek
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultaattypeOmschrijvingGeneriek'
+        405:
+          description: Fout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+  /resultaattypeomschrijvingen/{uuid}:
+    get:
+      tags:
+      - resultaattypeomschrijvingen
+      summary: Raadpleeg de generieke resultaattypeomschrijvingen.
+      operationId: resultaattypeomschrijvinggeneriek_retrieve
+      parameters:
+      - name: uuid
+        in: path
+        description: uuid van de resultaattypeomschrijving
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        200:
+          description: ResultaattypeOmschrijvingGeneriek
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultaattypeOmschrijvingGeneriek'
+        400:
+          description: FieldValidationError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FieldValidationError'
+        404:
+          description: Fout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        405:
+          description: Fout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+  /resultaten:
+    get:
+      tags:
+      - resultaten
+      summary: Ontsluit de selectielijst resultaten.
+      description: |-
+        Procestypen worden gerefereerd in zaaktypecatalogi - bij het configureren
+        van een zaaktype wordt aangegeven welk procestype van toepassing is, zodat
+        het archiefregime van zaken bepaald kan worden.
+        Zie https://vng.nl/files/vng/20170706-selectielijst-gemeenten-intergemeentelijke-organen-2017.pdf
+        voor de bron van de inhoud.
+      operationId: resultaten_list
+      parameters:
+      - name: proces_type
+        in: query
+        description: proces_type
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: Een pagina binnen de gepagineerde set resultaten.
+        schema:
+          type: integer
+      responses:
+        200:
+          description: Resultaten
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Resultaten'
+        400:
+          description: ValidatieFout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidatieFout'
+        404:
+          description: Fout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        405:
+          description: Fout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+  /resultaten/{uuid}:
+    get:
+      tags:
+      - resultaten
+      summary: Ontsluit de selectielijst resultaten.
+      description: |-
+        Procestypen worden gerefereerd in zaaktypecatalogi - bij het configureren
+        van een zaaktype wordt aangegeven welk procestype van toepassing is, zodat
+        het archiefregime van zaken bepaald kan worden.
+        Zie https://vng.nl/files/vng/20170706-selectielijst-gemeenten-intergemeentelijke-organen-2017.pdf
+        voor de bron van de inhoud.
+      operationId: resultaten_retrieve
+      parameters:
+      - name: uuid
+        in: path
+        description: uuid van de resultaattypeomschrijving
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        200:
+          description: Resultaat
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Resultaat'
+        404:
+          description: Fout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        405:
+          description: Fout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+components:
+  schemas:
+    FieldValidationError:
+      title: FieldValidationError represents an error
+      required:
+      - code
+      - name
+      - reason
+      type: object
+      properties:
+        code:
+          type: string
+          description: Systeemcode die het type fout aangeeft
+        name:
+          type: string
+          description: Naam van het veld met ongeldige gegevens
+        reason:
+          type: string
+          description: Uitleg wat er precies fout is met de gegevens
+      description: Formaat van validatiefouten.
+    Fout:
+      title: Fout represents an error
+      required:
+      - code
+      - detail
+      - instance
+      - status
+      - title
+      type: object
+      properties:
+        code:
+          type: string
+          description: Systeemcode die het type fout aangeeft
+        detail:
+          type: string
+          description: Extra informatie bij de fout, indien beschikbaar
+        instance:
+          type: string
+          description: URI met referentie naar dit specifiek voorkomen van de fout.
+            Deze kan gebruikt worden in combinatie met server logs, bijvoorbeeld.
+        status:
+          type: integer
+          description: De HTTP status code
+          format: int64
+        title:
+          type: string
+          description: Generieke titel voor het type fout
+        type:
+          type: string
+          description: URI referentie naar het type fout, bedoeld voor developers
+      description: Formaat van HTTP 4xx en 5xx fouten.
+    Health:
+      required:
+      - healthy
+      - time
+      type: object
+      properties:
+        healthy:
+          type: boolean
+          description: Als de api online is is dit altijd true
+        time:
+          type: string
+          description: Tijd waarop de message is gegenereerd
+    ProcesType:
+      required:
+      - jaar
+      - naam
+      - nummer
+      - omschrijving
+      - procesobject
+      - toelichting
+      - url
+      type: object
+      properties:
+        jaar:
+          maximum: 2147483647
+          minimum: -2147483648
+          type: integer
+          description: Nummer van de selectielijstcategorie
+          format: int32
+          example: 2020
+        naam:
+          maxLength: 100
+          type: string
+          description: Benaming van het procestype
+          example: Producten en diensten leveren
+        nummer:
+          maximum: 2147483647
+          minimum: -2147483648
+          type: integer
+          description: Het jaartal waartoe dit ProcesType behoort
+          format: int32
+          example: 6
+        omschrijving:
+          maxLength: 300
+          type: string
+          description: Omschrijving van het procestype
+          example: Het door het orgaan leveren van (publieke) producten of diensten
+        procesobject:
+          maxLength: 80
+          type: string
+          description: |-
+            Object waar de uitvoering van het proces op van toepassing
+            is en waarvan de bestaans- of geldigheidsduur eventueel van belang is
+            bij het bepalen van de start van de bewaartermijn
+          example: Het geleverde product of de geleverde dienst
+        toelichting:
+          type: string
+          description: Toelichting van het procestype
+          example: Voor het verstrekken van een product of dienst hoeft de aanvrager
+            niet aan een bepaalde situatie te voldoen, want in dat geval is het procestype
+            'Voorzieningen verstrekken' van toepassing. Het product of de dienst houdt
+            niet het doen of laten van het orgaan in, want in dat geval valt het onder
+            het procestype 'Verzoeken behandelen'.
+        url:
+          type: string
+          description: Interne referentie naar de url
+          readOnly: true
+          example: http://referentielijsten-api.internal/api/v1/651a1b5b-f84f-4c73-9151-4d485c7dcb99
+    Resultaat:
+      required:
+      - generiek
+      - herkomst
+      - naam
+      - nummer
+      - procesType
+      - procestermijnWeergave
+      - specifiek
+      - url
+      - volledigNummer
+      type: object
+      properties:
+        algemeenBestuurEnInrichtingOrganisatie:
+          type: boolean
+          description: algemeen bestuur en inrichting organisatie
+          readOnly: true
+        alleTaakgebieden:
+          type: boolean
+          description: alle taakgebieden
+          readOnly: true
+        bedrijfsvoeringEnPersoneel:
+          type: boolean
+          description: bedrijfsvoering en personeel
+          readOnly: true
+        bewaartermijn:
+          type: string
+          description: bewaartermijn
+          nullable: true
+        burgerzaken:
+          type: boolean
+          description: burgerzaken
+          readOnly: true
+        economie:
+          type: boolean
+          description: economie
+          readOnly: true
+        generiek:
+          type: boolean
+          description: generiek
+          readOnly: true
+        heffenBelastingen:
+          type: boolean
+          description: Heffen belastingen etc.
+          readOnly: true
+        herkomst:
+          maxLength: 200
+          type: string
+          description: |-
+            "Voorbeeld: 'Risicoanalyse', 'Systeemanalyse' of verwijzing
+            naar Wet- en regelgeving"
+        naam:
+          maxLength: 40
+          type: string
+          description: Benaming van het procestype
+        nummer:
+          maximum: 2147483647
+          minimum: -2147483648
+          type: integer
+          description: Nummer van het resultaat. Dit wordt samengesteld met het procestype
+            en generiek resultaat indien van toepassing.
+          format: int64
+          example: 6
+        omschrijving:
+          maxLength: 150
+          type: string
+          description: Omschrijving van het specifieke resultaat
+        onderwijs:
+          type: boolean
+          description: onderwijs
+          readOnly: true
+        procesType:
+          type: string
+          description: procestype
+          format: uri
+          readOnly: true
+        procestermijn:
+          type: string
+          description: |-
+            Uitleg bij mogelijke waarden:
+            `nihil` - Nihil
+            `bestaansduur_procesobject` - De bestaans- of geldigheidsduur van het procesobject.
+            `ingeschatte_bestaansduur_procesobject` - De ingeschatte maximale bestaans- of geldigheidsduur van het procesobject.
+            `vast_te_leggen_datum` - De tijdens het proces vast te leggen datum waarop de geldigheid van het procesobject komt te vervallen.
+            `samengevoegd_met_bewaartermijn` - De procestermijn is samengevoegd met de bewaartermijn."
+          enum:
+          - bestaansduur_procesobject
+          - nihil
+          - ""
+          - samengevoegd_met_bewaartermijn
+          - vast_te_leggen_datum
+        procestermijnOpmerking:
+          maxLength: 20
+          type: string
+          description: 'Voorbeeld: ''25 jaar'', ''30 jaar, ''5 of 10 jaar'''
+        procestermijnWeergave:
+          type: string
+          description: procestermijnWeergave
+          readOnly: true
+        publiekeInformatieEnRegistratie:
+          type: boolean
+          description: publieke informatie en registratie
+          readOnly: true
+        sociaalDomein:
+          type: boolean
+          description: sociaal domein
+          readOnly: true
+        specifiek:
+          type: boolean
+          description: specifiek
+          readOnly: true
+        sportCultuurEnRecreatie:
+          type: boolean
+          description: sport, cultuur en recreatie
+          readOnly: true
+        toelichting:
+          maxLength: 150
+          type: string
+          description: Toelichting
+        url:
+          type: string
+          description: Interne referentie naar de url
+          readOnly: true
+          example: http://referentielijsten-api.internal/api/v1/651a1b5b-f84f-4c73-9151-4d485c7dcb99
+        veiligheid:
+          type: boolean
+          description: veiligheid
+          readOnly: true
+        verkeerEnVervoer:
+          type: boolean
+          description: verkeer en vervoer
+          readOnly: true
+        vhrosv:
+          type: boolean
+          description: VHROSV
+          readOnly: true
+        volksgezonheidEnMilieu:
+          type: boolean
+          description: volksgezondheid en milieu
+          readOnly: true
+        volledigNummer:
+          type: string
+          description: volledigNummer
+          readOnly: true
+        waardering:
+          type: string
+          enum:
+          - blijvend_bewaren
+          - vernietigen
+    ResultaattypeOmschrijvingGeneriek:
+      required:
+      - definitie
+      - omschrijving
+      - url
+      type: object
+      properties:
+        definitie:
+          type: string
+          description: Nauwkeurige beschrijving van het generieke type resultaat.
+        omschrijving:
+          type: string
+          description: Algemeen gehanteerde omschrijvingen van de aard van het resultaat
+        opmerking:
+          type: string
+          description: Zinvolle toelichting bij de waarde van de generieke omschrijving
+        url:
+          type: string
+          description: Naam van het veld met ongeldige gegevens
+    Resultaten:
+      type: object
+      properties:
+        count:
+          type: integer
+          description: Totaal aantal resultaten
+          format: int64
+          example: 356
+        next:
+          type: string
+          description: Volgende pagina indien beschikbaar
+          format: uri
+          nullable: true
+          example: http://localhost:8000/api/v1/resultaten?page=2
+        previous:
+          type: string
+          description: Vorige pagina indien beschikbaar
+          format: uri
+          nullable: true
+          example: http://localhost:8000/api/v1/resultaten?page=1
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Resultaat'
+    ValidatieFout:
+      title: ValidatieFout represents an error
+      required:
+      - code
+      - detail
+      - instance
+      - invalidParams
+      - status
+      - title
+      type: object
+      properties:
+        code:
+          type: string
+          description: Systeemcode die het type fout aangeeft
+        detail:
+          type: string
+          description: Extra informatie bij de fout, indien beschikbaar
+        instance:
+          type: string
+          description: URI met referentie naar dit specifiek voorkomen van de fout.
+            Deze kan gebruikt worden in combinatie met server logs, bijvoorbeeld.
+        invalidParams:
+          type: array
+          items:
+            $ref: '#/components/schemas/FieldValidationError'
+        status:
+          type: integer
+          description: De HTTP status code
+          format: int32
+        title:
+          type: string
+          description: Generieke titel voor het type fout
+        type:
+          type: string
+          description: URI referentie naar het type fout, bedoeld voor developers
+      description: Formaat van HTTP 4xx en 5xx fouten.
