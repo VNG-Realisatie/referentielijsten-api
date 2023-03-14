@@ -28,5 +28,6 @@ func (r *ReferentielijstenHandler) Health(w http.ResponseWriter, req *http.Reque
 		Healthy: true,
 		Time:    currentTime.String(),
 	}
+
 	middleware.ResponseWithCode(w, http.StatusOK, health)
 }

@@ -1,20 +1,3 @@
-// @title           Referentielijsten & Selectielijst API
-// @version         0.0.1
-// @description     This is a sample server celler server.
-// @termsOfService  http://swagger.io/terms/
-
-// @contact.name    VNG Realisatie
-// @contact.url    https://github.com/VNG-Realisatie/referentielijsten-api
-// @contact.email  standaarden.ondersteuning@vng.nl
-
-// @license.name  EUPL 1.2
-// @license.url   https://opensource.org/licenses/EUPL-1.2
-
-// @host      localhost:8080
-// @BasePath  /api/v1
-
-// @externalDocs.description  OpenAPI
-// @externalDocs.url          https://swagger.io/resources/open-api/
 package main
 
 import (
