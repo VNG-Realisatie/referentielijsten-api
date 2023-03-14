@@ -1,0 +1,11 @@
+venv
+.idea
+.code
+Dockerfile
+Makefile
+dist
+__pycache__
+.DS_Store
+.git
+README.md
+LICENCE.md

@@ -1,4 +1,4 @@
-# Referentielijsten en Selectielijstne Api
+# Referentielijsten en Selectielijsten Api
 
 | Key       | Value                                                   |
 |-----------|---------------------------------------------------------|
