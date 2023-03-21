@@ -1,0 +1,777 @@
+{
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "swagger": "2.0",
+  "info": {
+    "description": "\"Een API om referentielijstwaarden en de gemeentelijke selectielijst\ntebenaderen. Selectielijst De [Gemeentelijke Selectielijst](https://vng.nl/selectielijst)\nis relevantin het kader van archivering.**Zaakgericht werken** Bij\nhet configureren van zaaktypes (en resultaattypes) in de catalogus APIrefereren\neen aantal resources naar resources binnen de Selectielijst API. Het gaat dan\nom de `ProcesType` en `Resultaat` resources.## ReferentielijstenReferentielijsten\nbevat een standaardset aan waarden. Deze waarden zijn net t\\xE9dynamisch om\nin een enum opgenomen te worden, maar er is wel behoefte om deze landelijk\nte standaardiseren. Een voorbeeld hiervan is de set aan mogelijkecommunicatiekanalen.\n## Autorisatie: Deze APIs zijn alleen-lezen, en behoeven geen autorisatie.\n## Inhoud: De inhoud wordt beheerd door VNG Realisatie. Om de inhoud van\nreferentielijsten bij te werken, contacteer dan VNG Realisatie via e-mail of\nop Github.De inhoud van de Gemeentelijke Selectielijst wordt ge\\xEFmporteerd\nvanuit degepubliceerde Excel-bestanden.\"",
+    "title": "Referentielijsten \u0026 Selectielijst API",
+    "contact": {
+      "url": "https://github.com/VNG-Realisatie/referentielijsten-api",
+      "email": "standaarden.ondersteuning@vng.nl"
+    },
+    "license": {
+      "name": "EUPL 1.2",
+      "url": "https://opensource.org/licenses/EUPL-1.2"
+    },
+    "version": "0.0.1"
+  },
+  "host": "referentielijsten-api.internal",
+  "basePath": "/api/v1",
+  "paths": {
+    "/health": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "schemes": [
+          "http",
+          "https"
+        ],
+        "tags": [
+          "health"
+        ],
+        "summary": "Controleer of de api online is.",
+        "operationId": "health_retrieve",
+        "responses": {
+          "200": {
+            "description": "Health",
+            "schema": {
+              "$ref": "#/definitions/Health"
+            }
+          }
+        }
+      }
+    },
+    "/procestypen": {
+      "get": {
+        "description": "Procestypen worden gerefereerd in zaaktypecatalogi - bij het configureren\nvan een zaaktype wordt aangegeven welk procestype van toepassing is, zodat\nhet archiefregime van zaken bepaald kan worden.\nZie https://vng.nl/files/vng/20170706-selectielijst-gemeenten-intergemeentelijke-organen-2017.pdf\nvoor de bron van de inhoud.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "schemes": [
+          "http",
+          "https"
+        ],
+        "tags": [
+          "procestypen"
+        ],
+        "summary": "Ontsluit de selectielijst procestypen.",
+        "operationId": "procestypen_list",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "jaar",
+            "name": "jaar",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ProcesType",
+            "schema": {
+              "$ref": "#/definitions/ProcesType"
+            }
+          },
+          "400": {
+            "description": "ValidatieFout",
+            "schema": {
+              "$ref": "#/definitions/ValidatieFout"
+            }
+          },
+          "405": {
+            "description": "Fout",
+            "schema": {
+              "$ref": "#/definitions/Fout"
+            }
+          }
+        }
+      }
+    },
+    "/procestypen/{uuid}": {
+      "get": {
+        "description": "Procestypen worden gerefereerd in zaaktypecatalogi - bij het configureren\nvan een zaaktype wordt aangegeven welk procestype van toepassing is, zodat\nhet archiefregime van zaken bepaald kan worden.\nZie https://vng.nl/files/vng/20170706-selectielijst-gemeenten-intergemeentelijke-organen-2017.pdf\nvoor de bron van de inhoud.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "schemes": [
+          "http",
+          "https"
+        ],
+        "tags": [
+          "procestypen"
+        ],
+        "summary": "Ontsluit de selectielijst procestypen.",
+        "operationId": "procestypen_retrieve",
+        "parameters": [
+          {
+            "type": "string",
+            "format": "uuid",
+            "description": "uuid van de resultaattypeomschrijving",
+            "name": "uuid",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ProcesType",
+            "schema": {
+              "$ref": "#/definitions/ProcesType"
+            }
+          },
+          "400": {
+            "description": "ValidatieFout",
+            "schema": {
+              "$ref": "#/definitions/ValidatieFout"
+            }
+          },
+          "404": {
+            "description": "Fout",
+            "schema": {
+              "$ref": "#/definitions/Fout"
+            }
+          },
+          "405": {
+            "description": "Fout",
+            "schema": {
+              "$ref": "#/definitions/Fout"
+            }
+          }
+        }
+      }
+    },
+    "/resultaattypeomschrijvingen": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "schemes": [
+          "http",
+          "https"
+        ],
+        "tags": [
+          "resultaattypeomschrijvingen"
+        ],
+        "summary": "Raadpleeg de generieke resultaattypeomschrijvingen.",
+        "operationId": "resultaattypeomschrijvinggeneriek_list",
+        "responses": {
+          "200": {
+            "description": "ResultaattypeOmschrijvingGeneriek",
+            "schema": {
+              "$ref": "#/definitions/ResultaattypeOmschrijvingGeneriek"
+            }
+          },
+          "405": {
+            "description": "Fout",
+            "schema": {
+              "$ref": "#/definitions/Fout"
+            }
+          }
+        }
+      }
+    },
+    "/resultaattypeomschrijvingen/{uuid}": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "schemes": [
+          "http",
+          "https"
+        ],
+        "tags": [
+          "resultaattypeomschrijvingen"
+        ],
+        "summary": "Raadpleeg de generieke resultaattypeomschrijvingen.",
+        "operationId": "resultaattypeomschrijvinggeneriek_retrieve",
+        "parameters": [
+          {
+            "type": "string",
+            "format": "uuid",
+            "description": "uuid van de resultaattypeomschrijving",
+            "name": "uuid",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ResultaattypeOmschrijvingGeneriek",
+            "schema": {
+              "$ref": "#/definitions/ResultaattypeOmschrijvingGeneriek"
+            }
+          },
+          "400": {
+            "description": "FieldValidationError",
+            "schema": {
+              "$ref": "#/definitions/FieldValidationError"
+            }
+          },
+          "404": {
+            "description": "Fout",
+            "schema": {
+              "$ref": "#/definitions/Fout"
+            }
+          },
+          "405": {
+            "description": "Fout",
+            "schema": {
+              "$ref": "#/definitions/Fout"
+            }
+          }
+        }
+      }
+    },
+    "/resultaten": {
+      "get": {
+        "description": "Procestypen worden gerefereerd in zaaktypecatalogi - bij het configureren\nvan een zaaktype wordt aangegeven welk procestype van toepassing is, zodat\nhet archiefregime van zaken bepaald kan worden.\nZie https://vng.nl/files/vng/20170706-selectielijst-gemeenten-intergemeentelijke-organen-2017.pdf\nvoor de bron van de inhoud.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "schemes": [
+          "http",
+          "https"
+        ],
+        "tags": [
+          "resultaten"
+        ],
+        "summary": "Ontsluit de selectielijst resultaten.",
+        "operationId": "resultaten_list",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "proces_type",
+            "name": "proces_type",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "description": "Een pagina binnen de gepagineerde set resultaten.",
+            "name": "page",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resultaten",
+            "schema": {
+              "$ref": "#/definitions/Resultaten"
+            }
+          },
+          "400": {
+            "description": "ValidatieFout",
+            "schema": {
+              "$ref": "#/definitions/ValidatieFout"
+            }
+          },
+          "404": {
+            "description": "Fout",
+            "schema": {
+              "$ref": "#/definitions/Fout"
+            }
+          },
+          "405": {
+            "description": "Fout",
+            "schema": {
+              "$ref": "#/definitions/Fout"
+            }
+          }
+        }
+      }
+    },
+    "/resultaten/{uuid}": {
+      "get": {
+        "description": "Procestypen worden gerefereerd in zaaktypecatalogi - bij het configureren\nvan een zaaktype wordt aangegeven welk procestype van toepassing is, zodat\nhet archiefregime van zaken bepaald kan worden.\nZie https://vng.nl/files/vng/20170706-selectielijst-gemeenten-intergemeentelijke-organen-2017.pdf\nvoor de bron van de inhoud.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "schemes": [
+          "http",
+          "https"
+        ],
+        "tags": [
+          "resultaten"
+        ],
+        "summary": "Ontsluit de selectielijst resultaten.",
+        "operationId": "resultaten_retrieve",
+        "parameters": [
+          {
+            "type": "string",
+            "format": "uuid",
+            "description": "uuid van de resultaattypeomschrijving",
+            "name": "uuid",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resultaat",
+            "schema": {
+              "$ref": "#/definitions/Resultaat"
+            }
+          },
+          "404": {
+            "description": "Fout",
+            "schema": {
+              "$ref": "#/definitions/Fout"
+            }
+          },
+          "405": {
+            "description": "Fout",
+            "schema": {
+              "$ref": "#/definitions/Fout"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "FieldValidationError": {
+      "description": "Formaat van validatiefouten.",
+      "type": "object",
+      "title": "FieldValidationError represents an error",
+      "required": [
+        "name",
+        "code",
+        "reason"
+      ],
+      "properties": {
+        "code": {
+          "description": "Systeemcode die het type fout aangeeft",
+          "type": "string"
+        },
+        "name": {
+          "description": "Naam van het veld met ongeldige gegevens",
+          "type": "string"
+        },
+        "reason": {
+          "description": "Uitleg wat er precies fout is met de gegevens",
+          "type": "string"
+        }
+      }
+    },
+    "Fout": {
+      "description": "Formaat van HTTP 4xx en 5xx fouten.",
+      "type": "object",
+      "title": "Fout represents an error",
+      "required": [
+        "code",
+        "title",
+        "status",
+        "detail",
+        "instance"
+      ],
+      "properties": {
+        "code": {
+          "description": "Systeemcode die het type fout aangeeft",
+          "type": "string"
+        },
+        "detail": {
+          "description": "Extra informatie bij de fout, indien beschikbaar",
+          "type": "string"
+        },
+        "instance": {
+          "description": "URI met referentie naar dit specifiek voorkomen van de fout. Deze kan gebruikt worden in combinatie met server logs, bijvoorbeeld.",
+          "type": "string"
+        },
+        "status": {
+          "description": "De HTTP status code",
+          "type": "integer",
+          "format": "int64"
+        },
+        "title": {
+          "description": "Generieke titel voor het type fout",
+          "type": "string"
+        },
+        "type": {
+          "description": "URI referentie naar het type fout, bedoeld voor developers",
+          "type": "string"
+        }
+      }
+    },
+    "Health": {
+      "type": "object",
+      "required": [
+        "healthy",
+        "time"
+      ],
+      "properties": {
+        "healthy": {
+          "description": "Als de api online is is dit altijd true",
+          "type": "boolean"
+        },
+        "time": {
+          "description": "Tijd waarop de message is gegenereerd",
+          "type": "string"
+        }
+      }
+    },
+    "ProcesType": {
+      "type": "object",
+      "required": [
+        "url",
+        "nummer",
+        "jaar",
+        "naam",
+        "omschrijving",
+        "toelichting",
+        "procesobject"
+      ],
+      "properties": {
+        "jaar": {
+          "description": "Nummer van de selectielijstcategorie",
+          "type": "integer",
+          "format": "int32",
+          "maximum": 2147483647,
+          "minimum": -2147483648,
+          "example": 2020
+        },
+        "naam": {
+          "description": "Benaming van het procestype",
+          "type": "string",
+          "maxLength": 100,
+          "example": "Producten en diensten leveren"
+        },
+        "nummer": {
+          "description": "Het jaartal waartoe dit ProcesType behoort",
+          "type": "integer",
+          "format": "int32",
+          "maximum": 2147483647,
+          "minimum": -2147483648,
+          "example": 6
+        },
+        "omschrijving": {
+          "description": "Omschrijving van het procestype",
+          "type": "string",
+          "maxLength": 300,
+          "example": "Het door het orgaan leveren van (publieke) producten of diensten"
+        },
+        "procesobject": {
+          "description": "Object waar de uitvoering van het proces op van toepassing\nis en waarvan de bestaans- of geldigheidsduur eventueel van belang is\nbij het bepalen van de start van de bewaartermijn",
+          "type": "string",
+          "maxLength": 80,
+          "example": "Het geleverde product of de geleverde dienst"
+        },
+        "toelichting": {
+          "description": "Toelichting van het procestype",
+          "type": "string",
+          "example": "Voor het verstrekken van een product of dienst hoeft de aanvrager niet aan een bepaalde situatie te voldoen, want in dat geval is het procestype 'Voorzieningen verstrekken' van toepassing. Het product of de dienst houdt niet het doen of laten van het orgaan in, want in dat geval valt het onder het procestype 'Verzoeken behandelen'."
+        },
+        "url": {
+          "description": "Interne referentie naar de url",
+          "type": "string",
+          "readOnly": true,
+          "example": "http://referentielijsten-api.internal/api/v1/651a1b5b-f84f-4c73-9151-4d485c7dcb99"
+        }
+      }
+    },
+    "Resultaat": {
+      "type": "object",
+      "required": [
+        "url",
+        "procesType",
+        "nummer",
+        "volledigNummer",
+        "generiek",
+        "specifiek",
+        "naam",
+        "herkomst",
+        "procestermijnWeergave"
+      ],
+      "properties": {
+        "algemeenBestuurEnInrichtingOrganisatie": {
+          "description": "algemeen bestuur en inrichting organisatie",
+          "type": "boolean",
+          "readOnly": true
+        },
+        "alleTaakgebieden": {
+          "description": "alle taakgebieden",
+          "type": "boolean",
+          "readOnly": true
+        },
+        "bedrijfsvoeringEnPersoneel": {
+          "description": "bedrijfsvoering en personeel",
+          "type": "boolean",
+          "readOnly": true
+        },
+        "bewaartermijn": {
+          "description": "bewaartermijn",
+          "type": "string",
+          "x-nullable": true
+        },
+        "burgerzaken": {
+          "description": "burgerzaken",
+          "type": "boolean",
+          "readOnly": true
+        },
+        "economie": {
+          "description": "economie",
+          "type": "boolean",
+          "readOnly": true
+        },
+        "generiek": {
+          "description": "generiek",
+          "type": "boolean",
+          "readOnly": true
+        },
+        "heffenBelastingen": {
+          "description": "Heffen belastingen etc.",
+          "type": "boolean",
+          "readOnly": true
+        },
+        "herkomst": {
+          "description": "\"Voorbeeld: 'Risicoanalyse', 'Systeemanalyse' of verwijzing\nnaar Wet- en regelgeving\"",
+          "type": "string",
+          "maxLength": 200
+        },
+        "naam": {
+          "description": "Benaming van het procestype",
+          "type": "string",
+          "maxLength": 40
+        },
+        "nummer": {
+          "description": "Nummer van het resultaat. Dit wordt samengesteld met het procestype en generiek resultaat indien van toepassing.",
+          "type": "integer",
+          "format": "int64",
+          "maximum": 2147483647,
+          "minimum": -2147483648,
+          "example": 6
+        },
+        "omschrijving": {
+          "description": "Omschrijving van het specifieke resultaat",
+          "type": "string",
+          "maxLength": 150
+        },
+        "onderwijs": {
+          "description": "onderwijs",
+          "type": "boolean",
+          "readOnly": true
+        },
+        "procesType": {
+          "description": "procestype",
+          "type": "string",
+          "format": "uri",
+          "readOnly": true
+        },
+        "procestermijn": {
+          "description": "Uitleg bij mogelijke waarden:\n`nihil` - Nihil\n`bestaansduur_procesobject` - De bestaans- of geldigheidsduur van het procesobject.\n`ingeschatte_bestaansduur_procesobject` - De ingeschatte maximale bestaans- of geldigheidsduur van het procesobject.\n`vast_te_leggen_datum` - De tijdens het proces vast te leggen datum waarop de geldigheid van het procesobject komt te vervallen.\n`samengevoegd_met_bewaartermijn` - De procestermijn is samengevoegd met de bewaartermijn.\"",
+          "type": "string",
+          "enum": [
+            "bestaansduur_procesobject",
+            "nihil",
+            "",
+            "samengevoegd_met_bewaartermijn",
+            "vast_te_leggen_datum"
+          ]
+        },
+        "procestermijnOpmerking": {
+          "description": "Voorbeeld: '25 jaar', '30 jaar, '5 of 10 jaar'",
+          "type": "string",
+          "maxLength": 20
+        },
+        "procestermijnWeergave": {
+          "description": "procestermijnWeergave",
+          "type": "string",
+          "readOnly": true
+        },
+        "publiekeInformatieEnRegistratie": {
+          "description": "publieke informatie en registratie",
+          "type": "boolean",
+          "readOnly": true
+        },
+        "sociaalDomein": {
+          "description": "sociaal domein",
+          "type": "boolean",
+          "readOnly": true
+        },
+        "specifiek": {
+          "description": "specifiek",
+          "type": "boolean",
+          "readOnly": true
+        },
+        "sportCultuurEnRecreatie": {
+          "description": "sport, cultuur en recreatie",
+          "type": "boolean",
+          "readOnly": true
+        },
+        "toelichting": {
+          "description": "Toelichting",
+          "type": "string",
+          "maxLength": 150
+        },
+        "url": {
+          "description": "Interne referentie naar de url",
+          "type": "string",
+          "readOnly": true,
+          "example": "http://referentielijsten-api.internal/api/v1/651a1b5b-f84f-4c73-9151-4d485c7dcb99"
+        },
+        "veiligheid": {
+          "description": "veiligheid",
+          "type": "boolean",
+          "readOnly": true
+        },
+        "verkeerEnVervoer": {
+          "description": "verkeer en vervoer",
+          "type": "boolean",
+          "readOnly": true
+        },
+        "vhrosv": {
+          "description": "VHROSV",
+          "type": "boolean",
+          "readOnly": true
+        },
+        "volksgezonheidEnMilieu": {
+          "description": "volksgezondheid en milieu",
+          "type": "boolean",
+          "readOnly": true
+        },
+        "volledigNummer": {
+          "description": "volledigNummer",
+          "type": "string",
+          "readOnly": true
+        },
+        "waardering": {
+          "type": "string",
+          "enum": [
+            "blijvend_bewaren",
+            "vernietigen"
+          ]
+        }
+      }
+    },
+    "ResultaattypeOmschrijvingGeneriek": {
+      "type": "object",
+      "required": [
+        "url",
+        "omschrijving",
+        "definitie"
+      ],
+      "properties": {
+        "definitie": {
+          "description": "Nauwkeurige beschrijving van het generieke type resultaat.",
+          "type": "string"
+        },
+        "omschrijving": {
+          "description": "Algemeen gehanteerde omschrijvingen van de aard van het resultaat",
+          "type": "string"
+        },
+        "opmerking": {
+          "description": "Zinvolle toelichting bij de waarde van de generieke omschrijving",
+          "type": "string"
+        },
+        "url": {
+          "description": "Naam van het veld met ongeldige gegevens",
+          "type": "string"
+        }
+      }
+    },
+    "Resultaten": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "description": "Totaal aantal resultaten",
+          "type": "integer",
+          "format": "int64",
+          "example": 356
+        },
+        "next": {
+          "description": "Volgende pagina indien beschikbaar",
+          "type": "string",
+          "format": "uri",
+          "x-nullable": true,
+          "example": "http://localhost:8000/api/v1/resultaten?page=2"
+        },
+        "previous": {
+          "description": "Vorige pagina indien beschikbaar",
+          "type": "string",
+          "format": "uri",
+          "x-nullable": true,
+          "example": "http://localhost:8000/api/v1/resultaten?page=1"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Resultaat"
+          }
+        }
+      }
+    },
+    "ValidatieFout": {
+      "description": "Formaat van HTTP 4xx en 5xx fouten.",
+      "type": "object",
+      "title": "ValidatieFout represents an error",
+      "required": [
+        "code",
+        "title",
+        "status",
+        "detail",
+        "instance",
+        "invalidParams"
+      ],
+      "properties": {
+        "code": {
+          "description": "Systeemcode die het type fout aangeeft",
+          "type": "string"
+        },
+        "detail": {
+          "description": "Extra informatie bij de fout, indien beschikbaar",
+          "type": "string"
+        },
+        "instance": {
+          "description": "URI met referentie naar dit specifiek voorkomen van de fout. Deze kan gebruikt worden in combinatie met server logs, bijvoorbeeld.",
+          "type": "string"
+        },
+        "invalidParams": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FieldValidationError"
+          }
+        },
+        "status": {
+          "description": "De HTTP status code",
+          "type": "integer",
+          "format": "int32"
+        },
+        "title": {
+          "description": "Generieke titel voor het type fout",
+          "type": "string"
+        },
+        "type": {
+          "description": "URI referentie naar het type fout, bedoeld voor developers",
+          "type": "string"
+        }
+      }
+    }
+  }
+}
