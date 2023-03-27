@@ -37,7 +37,7 @@ References
 Installatie
 ========
 
-* [Install](https://github.com/VNG-Realisatie/referentielijsten-api/INSTALL.md)
+* [Install](INSTALL.md)
 
 Licentie
 ========
