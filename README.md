@@ -23,6 +23,10 @@ voorkomen.
 LET OP: De opgenomen lijsten zijn statisch en dienen alleen ter referentie voor de beschikbare APIS binnen ZGW.
 De waarden van de API mogen op geen enkele manier dienen als data voor productie of tijdens het gebruik van productiewaardige APIS.
 
+| Versie  | Release datum | API specificatie                                                                                                                               |
+|---------|---------------|------------------------------------------------------------------------------------------------------------------------------------------------|
+| 0.1.0   | 2023-03-20    | [ReDoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/VNG-Realisatie/referentielijsten-api/v0.1.0/docs/openapi.yaml>) |
+
 
 References
 ==========
@@ -30,6 +34,10 @@ References
 * [Issues](https://github.com/VNG-Realisatie/referentielijsten-api/issues)
 
 
+Installatie
+========
+
+* [Install](https://github.com/VNG-Realisatie/referentielijsten-api/INSTALL.md)
 
 Licentie
 ========
