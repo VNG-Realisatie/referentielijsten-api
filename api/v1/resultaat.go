@@ -149,7 +149,7 @@ func (r *ReferentielijstenHandler) ListResultaten(w http.ResponseWriter, req *ht
 		u, _ := url.JoinPath(scheme, req.Host, req.URL.Path, result.URL)
 		result.URL = u
 		procesTypeUUID := result.ProcesType
-		p, _ := url.JoinPath(scheme, req.Host, "api/v1/procestype", result.ProcesType)
+		p, _ := url.JoinPath(scheme, req.Host, "api/v1/procestypen", result.ProcesType)
 		result.ProcesType = p
 
 		if procesType != "" {
@@ -209,7 +209,7 @@ func (r *ReferentielijstenHandler) GetResultaat(w http.ResponseWriter, req *http
 		if result.URL == uuid {
 			u, _ := url.JoinPath(scheme, req.Host, req.RequestURI)
 			result.URL = u
-			p, _ := url.JoinPath(scheme, req.Host, "api/v1/procestype", result.ProcesType)
+			p, _ := url.JoinPath(scheme, req.Host, "api/v1/procestypen", result.ProcesType)
 			result.ProcesType = p
 			middleware.ResponseWithCode(w, http.StatusOK, result)
 			return
