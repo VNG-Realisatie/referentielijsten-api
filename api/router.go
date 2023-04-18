@@ -32,6 +32,7 @@ func InitRoutes(loader *models.Loader) *mux.Router {
 	//redoc
 	serveMux.HandleFunc("/api/v1/schema", middleware.Adapt(serveRedoc, middleware.ValidateRestMethod("GET"), middleware.LogRequestDetails(), middleware.SetCorsHeaders()))
 	serveMux.HandleFunc("/api/v1/openapi.yaml", middleware.Adapt(serveOpenApi, middleware.ValidateRestMethod("GET"), middleware.LogRequestDetails(), middleware.SetCorsHeaders()))
+	serveMux.HandleFunc("/api/v1/schema/openapi.yaml", middleware.Adapt(serveOpenApi, middleware.ValidateRestMethod("GET"), middleware.LogRequestDetails(), middleware.SetCorsHeaders()))
 
 	return serveMux
 }
