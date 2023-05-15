@@ -28,10 +28,7 @@ func (r *ReferentielijstenHandler) ListResultaattypeomschrijvingen(w http.Respon
 	//	  200: ResultaattypeOmschrijvingGeneriek
 	// 	  405: Fout
 
-	scheme := "https://"
-	if req.TLS == nil {
-		scheme = "http://"
-	}
+	scheme := getScheme(req)
 
 	//TODO remove
 	log.Print(req)
@@ -81,10 +78,7 @@ func (r *ReferentielijstenHandler) GetResultaattypeomschrijving(w http.ResponseW
 
 	pathParams := mux.Vars(req)
 	uuid := pathParams[UUIDFromParam]
-	scheme := "https://"
-	if req.TLS == nil {
-		scheme = "http://"
-	}
+	scheme := getScheme(req)
 
 	for _, result := range r.Data.ResultaattypenOmscrhijvingen {
 		if result.URL == uuid {

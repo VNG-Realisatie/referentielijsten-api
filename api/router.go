@@ -15,7 +15,7 @@ func InitRoutes(loader *models.Loader) *mux.Router {
 		Data: loader,
 	}
 
-	serveMux.HandleFunc("/api/v1/health", middleware.Adapt(v1Handler.Health, middleware.ValidateRestMethod("GET"), middleware.LogRequestDetails(), middleware.SetCorsHeaders()))
+	serveMux.HandleFunc("/api/v1/health", middleware.Adapt(v1Handler.Health, middleware.ValidateRestMethod("GET"), middleware.SetCorsHeaders()))
 
 	//resultaten
 	serveMux.HandleFunc("/api/v1/resultaten", middleware.Adapt(v1Handler.ListResultaten, middleware.ValidateRestMethod("GET"), middleware.LogRequestDetails(), middleware.SetCorsHeaders()))
