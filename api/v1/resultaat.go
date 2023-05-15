@@ -51,9 +51,9 @@ func (r *ReferentielijstenHandler) ListResultaten(w http.ResponseWriter, req *ht
 	//	  404: Fout
 	// 	  405: Fout
 
-	scheme := "https://"
-	if req.TLS == nil {
-		scheme = "http://"
+	scheme := "http://"
+	if req.TLS != nil || req.Host == productionHostName || req.Host == testHostName {
+		scheme = "https://"
 	}
 
 	log.Printf("req.TLS: %v", req.TLS)
@@ -147,11 +147,6 @@ func (r *ReferentielijstenHandler) ListResultaten(w http.ResponseWriter, req *ht
 	}
 
 	resultsToBeUsed := r.Data.Resultaten[start:finish]
-
-	log.Printf("scheme: %v", scheme)
-	log.Printf("req.Host: %v", req.Host)
-	log.Printf("req.URL.Path: %v", req.URL.Path)
-	log.Printf("req.Proto: %v", req.Proto)
 
 	for _, result := range resultsToBeUsed {
 		u, _ := url.JoinPath(scheme, req.Host, req.URL.Path, result.URL)
