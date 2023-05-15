@@ -6,6 +6,7 @@ import (
 	"github.com/VNG-Realisatie/referentielijsten-api/models"
 	"github.com/VNG-Realisatie/referentielijsten-api/validator"
 	"github.com/gorilla/mux"
+	"log"
 	"net/http"
 	"net/url"
 	"strconv"
@@ -50,10 +51,9 @@ func (r *ReferentielijstenHandler) ListResultaten(w http.ResponseWriter, req *ht
 	//	  404: Fout
 	// 	  405: Fout
 
-	scheme := "https://"
-	if req.TLS == nil {
-		scheme = "http://"
-	}
+	scheme := getScheme(req)
+
+	log.Printf("req.TLS: %v", req.TLS)
 
 	pageId := req.URL.Query().Get(PageFromParam)
 	procesType := req.URL.Query().Get(ProcesTypeFromParam)
@@ -200,10 +200,7 @@ func (r *ReferentielijstenHandler) GetResultaat(w http.ResponseWriter, req *http
 
 	pathParams := mux.Vars(req)
 	uuid := pathParams[UUIDFromParam]
-	scheme := "https://"
-	if req.TLS == nil {
-		scheme = "http://"
-	}
+	scheme := getScheme(req)
 
 	for _, result := range r.Data.Resultaten {
 		if result.URL == uuid {

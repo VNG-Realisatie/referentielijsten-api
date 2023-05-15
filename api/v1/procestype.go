@@ -46,10 +46,8 @@ func (r *ReferentielijstenHandler) ListProcesTypen(w http.ResponseWriter, req *h
 	var parsedYear int32
 
 	var response models.ProcesTypen
-	scheme := "https://"
-	if req.TLS == nil {
-		scheme = "http://"
-	}
+
+	scheme := getScheme(req)
 
 	if year != "" {
 		convertedYear, err := strconv.Atoi(year)
@@ -132,10 +130,7 @@ func (r *ReferentielijstenHandler) GetProcesType(w http.ResponseWriter, req *htt
 
 	pathParams := mux.Vars(req)
 	uuid := pathParams[UUIDFromParam]
-	scheme := "https://"
-	if req.TLS == nil {
-		scheme = "http://"
-	}
+	scheme := getScheme(req)
 
 	for _, result := range r.Data.ProcesTypen {
 		if result.URL == uuid {
