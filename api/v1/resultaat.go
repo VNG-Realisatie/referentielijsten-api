@@ -6,6 +6,7 @@ import (
 	"github.com/VNG-Realisatie/referentielijsten-api/models"
 	"github.com/VNG-Realisatie/referentielijsten-api/validator"
 	"github.com/gorilla/mux"
+	"log"
 	"net/http"
 	"net/url"
 	"strconv"
@@ -54,6 +55,8 @@ func (r *ReferentielijstenHandler) ListResultaten(w http.ResponseWriter, req *ht
 	if req.TLS == nil {
 		scheme = "http://"
 	}
+
+	log.Printf("req.TLS: %v", req.TLS)
 
 	pageId := req.URL.Query().Get(PageFromParam)
 	procesType := req.URL.Query().Get(ProcesTypeFromParam)
@@ -144,6 +147,11 @@ func (r *ReferentielijstenHandler) ListResultaten(w http.ResponseWriter, req *ht
 	}
 
 	resultsToBeUsed := r.Data.Resultaten[start:finish]
+
+	log.Printf("scheme: %v", scheme)
+	log.Printf("req.Host: %v", req.Host)
+	log.Printf("req.URL.Path: %v", req.URL.Path)
+	log.Printf("req.Proto: %v", req.Proto)
 
 	for _, result := range resultsToBeUsed {
 		u, _ := url.JoinPath(scheme, req.Host, req.URL.Path, result.URL)
