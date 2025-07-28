@@ -1,3 +1,8 @@
+| Eigenaar | Ingevuld door |
+| --- | --- |
+| Kennis centrum Architectuur | Rutger ter Borg |
+<hr/>
+
 # Referentielijsten en Selectielijsten Api
 
 | Key       | Value                                                   |
